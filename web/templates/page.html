@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Rchain: Rock, Paper And Scissors</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <section id="join-section">
+            <form action="" class="join-form">
+                <fieldset>
+                    <label>Game ID:</label>
+                    <input type="text" id="game-id">
+                </fieldset>
+                <button id="join-button">Join</button>
+            </form>
+        </section>
+        <section id="play-section" class="hidden">
+            <form action="" class="play-form">
+                <fieldset>
+                    <label>Your Option:</label>
+                    <select id="chosen-option">
+                        <option value="rock">Rock</option>
+                        <option value="paper">Paper</option>
+                        <option value="scissors">Scissors</option>
+                    </select>
+                </fieldset>
+                <button id="play-button">Play</button>
+            </form>
+        </section>
+        <script src="{{ url_for('static', filename='page.js') }}"></script>
+    </body>
+</html>
