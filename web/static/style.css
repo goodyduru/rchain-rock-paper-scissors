@@ -1,3 +1,183 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+}
 .hidden{
     display: none;
+}
+.text-center {
+    text-align: center;
+}
+.transparent{
+    opacity: 0;
+}
+header{
+    background-color: white;
+    height: 50px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, .25);
+}
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+header h3{   
+    text-align: center;
+    padding-top: 15px;
+}
+section{
+    margin-top: 40px;
+}
+#join-section{
+    width: 40%;
+    max-width: 350px;
+    min-width: 300px;
+    margin: 40px auto 0;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, .25);
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+fieldset{
+    border: none;
+}
+label{
+    display: block;
+    margin-bottom: 5px;
+}
+#join-section h5{
+    text-align: center;
+    margin-bottom: 10px;
+}
+input{
+    display: block;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+    width: 100%;
+    padding: 6px 15px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    border-radius: 4px;
+}
+button{
+    background-color: #0088f0;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    cursor: pointer;
+    margin-left: 13px;
+    border-radius: 3px;
+    transition: all 300ms ease-in;
+}
+button:hover{
+    background-color: #5088cf;
+}
+a, a:hover, a:focus{
+    text-decoration: none;
+}
+#join-section p{
+    font-size: 0.9rem;
+    margin-left: 13px;
+}
+.alert{
+    width: 300px;
+    margin: 10px auto 20px;
+    background-color: #5088cf;
+    color: white;
+    box-sizing: border-box;
+    padding: 10px 18px;
+}
+.grid-wrapper{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "my-game opponent-game"
+        "control-area control-area";
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+/**
+*   Area For Where Choice Made Is Shown
+*/
+
+.game-holder {
+    text-align: center;
+    background-color: #f3f3f3;
+    padding-top: 20px;
+}
+.game-holder h5, .game-holder p{
+    text-align: center;
+}
+.game-holder h5{
+    margin-bottom: 20px;
+}
+.img-holder{
+    width: 16vw;
+}
+
+/**
+*   Area For Choosing The Options
+*/
+
+#control-area{
+    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.img-holders{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.img-holders a{
+    display: inline-block;
+    margin: 0 15px;
+    padding: 3px 5px;
+}
+.img-holders a:focus,
+.img-holders a:hover,
+.img-holders a.chosen{
+    border: 3px dotted #0088f0;
+}
+.img-holders img{
+    width: 50px;
+}
+.btn-holder{
+    text-align: center;
+}
+.btn-holder a{
+    display: inline-block;
+    background-color: #0088f0;
+    color: white;
+    padding: 6px 15px;
+    cursor: pointer;
+    margin-left: 13px;
+    border-radius: 3px;
+    transition: all 300ms ease-in;
+}
+.btn-holder a:hover,
+.btn-holder a:focus{
+    background-color: #5088cf;
+}
+
+@media (min-width: 768px) {
+    .grid-wrapper{
+        width: 750px
+    }
+}
+@media (min-width: 992px) {
+    .grid-wrapper{
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .grid-wrapper{
+        width: 1170px;
+    }
 }

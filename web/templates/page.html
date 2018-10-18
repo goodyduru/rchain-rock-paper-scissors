@@ -3,29 +3,56 @@
     <head>
         <title>Rchain: Rock, Paper And Scissors</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        
+	    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     </head>
     <body>
+        <header>
+            <h3>RChain Rock, Paper And Scissors Example</h3>
+        </header>
         <section id="join-section">
+            <h5>Create/Join Game</h5>
             <form action="" class="join-form">
                 <fieldset>
-                    <label>Game ID:</label>
+                    <label>Input Game ID If Available:</label>
                     <input type="text" id="game-id">
                 </fieldset>
                 <button id="join-button">Join</button>
+                <p>Or Just <a href="#" id="create-game">Create A New Game Here</a></p>
             </form>
         </section>
         <section id="play-section" class="hidden">
-            <form action="" class="play-form">
-                <fieldset>
-                    <label>Your Option:</label>
-                    <select id="chosen-option">
-                        <option value="rock">Rock</option>
-                        <option value="paper">Paper</option>
-                        <option value="scissors">Scissors</option>
-                    </select>
-                </fieldset>
-                <button id="play-button">Play</button>
-            </form>
+            <div class="alert"><p> Your Game ID is <span id="game-id-alert"></span></p></div>
+            <p class="text-center"><strong id="final-statement"></strong></p>
+            <div class="grid-wrapper">
+                <div class="game-holder">
+                    <h5>Me</h5>
+                    <img class="img-holder transparent" id="your-choice-img" src="{{ url_for('static', filename='img/rock.png') }}">
+                    <p>Your Score: <strong id="your-score">0</strong></p>
+                </div>
+                <div class="game-holder">
+                    <h5>Your Opponent</h5>
+                    <img class="img-holder transparent" id="opponent-choice-img" src="{{ url_for('static', filename='img/rock.png') }}">
+                    <p>Opponent Score: <strong id="opponent-score">0</strong></p>
+                </div>
+                <div id="control-area">
+                    <div class="img-holders">
+                        <a href="#" id="rock-img">
+                            <img src="{{ url_for('static', filename='img/rock.png') }}">
+                        </a>
+                        <a href="#" id="paper-img">
+                            <img src="{{ url_for('static', filename='img/paper.png') }}">
+                        </a>
+                        <a href="#" id="scissors-img">
+                            <img src="{{ url_for('static', filename='img/scissors.png') }}">
+                        </a>
+                    </div>
+                    <input id="chosen-option" type="hidden" value="">
+                    <div class="btn-holder">
+                        <a href="#" id="play-button">Play</a>
+                    </div>
+                </div>
+            </div>
         </section>
         <script src="{{ url_for('static', filename='page.js') }}"></script>
     </body>

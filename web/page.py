@@ -14,6 +14,12 @@ def join():
     response = {'message': 'Game Successfully Created'}
     return json.dumps(response)
 
+@app.route('/create')
+def create():
+    random_num = random.randint(1, 1000000)
+    response = {'game_id': random_num}
+    return json.dumps(response)
+
 @app.route('/play', methods=['POST'])
 def play():
     request_body = request.get_json()
@@ -25,20 +31,20 @@ def play():
 def player_won(chosen_option):
     options = ["rock", "paper", "scissors"]
     option = options[random.randint(0, 2)]
-    message = "You Won"
+    message = "won"
     if chosen_option == "rock":
         if option == "paper":
-            message = "You Lost"
+            message = "lost"
         elif option == "rock":
-            message = "You Drew"
+            message = "draw"
     elif chosen_option == "paper":
         if option == "paper":
-            message = "You Drew"
+            message = "draw"
         elif option == "scissors":
-            message = "You Lost"
+            message = "lost"
     else:
         if option == "rock":
-            message = "You Lost"
+            message = "lost"
         elif option == "scissors":
-            message = "You Drew"
-    return message, option.capitalize()
+            message = "draw"
+    return message, option
