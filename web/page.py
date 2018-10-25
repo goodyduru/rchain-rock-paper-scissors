@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request
+from flask_socketio import SocketIO, join_room, emit, send, rooms
 import json
 import random
 app = Flask(__name__)
+app.secret_key = b'_3(1*03/{}{^%]'
+socketio = SocketIO(app)
 
 @app.route('/')
 def index():
@@ -9,8 +12,6 @@ def index():
 
 @app.route('/join', methods=['POST'])
 def join():
-    request_body = request.get_json()
-    id = request_body['id']
     response = {'message': 'Game Successfully Created'}
     return json.dumps(response)
 
@@ -23,9 +24,14 @@ def create():
 @app.route('/play', methods=['POST'])
 def play():
     request_body = request.get_json()
-    chosen_option = request_body['chosen_option']
-    message, option = player_won(chosen_option)
-    response = {'message': message, 'option': option}
+    player_data = {
+        'chosen_option': request_body['option'],
+        'room': request_body['room'],
+        'player_id': request_body['player_id'],
+        'game_played': request_body['game_played']
+    }
+    emit("opponent-play", player_data, namespace='/', broadcast=True)
+    response = {'message': "Played"}
     return json.dumps(response)
 
 def player_won(chosen_option):
@@ -48,3 +54,14 @@ def player_won(chosen_option):
         elif option == "scissors":
             message = "draw"
     return message, option
+
+"""
+    SocketIO Functions
+"""
+@socketio.on('join')
+def on_join(data):
+    join_room(data['room'], sid=data['player_id'], namespace='/')
+    print(rooms(data['player_id'], '/'))
+    if data['player_id'] == 2:
+        print("Opponent Has Joined")
+        emit("opponent", {'room': data['room']}, namespace='/', broadcast=True)

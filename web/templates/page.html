@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Rchain: Rock, Paper And Scissors</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         
 	    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     </head>
@@ -27,8 +27,8 @@
             <div class="grid-wrapper">
                 <div class="game-holder">
                     <h5>Me</h5>
-                    <img class="img-holder transparent" id="your-choice-img" src="{{ url_for('static', filename='img/rock.png') }}">
-                    <p>Your Score: <strong id="your-score">0</strong></p>
+                    <img class="img-holder transparent" id="player-choice-img" src="{{ url_for('static', filename='img/rock.png') }}">
+                    <p>Your Score: <strong id="player-score">0</strong></p>
                 </div>
                 <div class="game-holder">
                     <h5>Your Opponent</h5>
@@ -54,6 +54,7 @@
                 </div>
             </div>
         </section>
-        <script src="{{ url_for('static', filename='page.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/socket.io.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/page.js') }}"></script>
     </body>
 </html>

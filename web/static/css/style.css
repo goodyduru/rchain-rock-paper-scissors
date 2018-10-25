@@ -109,6 +109,9 @@ a, a:hover, a:focus{
     background-color: #f3f3f3;
     padding-top: 20px;
 }
+.game-holder.not-joined {
+    background-color: #f36363;
+}
 .game-holder h5, .game-holder p{
     text-align: center;
 }
