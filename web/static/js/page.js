@@ -147,14 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         else if ( player_option == "paper" ) {
-            if ( opponent_option == "paper" ) {
-                message = "draw";
-            }
-            else if ( opponent_option == "scissors" ) {
+            if ( opponent_option == "scissors" ) {
                 message = "lost";
             }
+            else if ( opponent_option == "paper" ) {
+                message = "draw";
+            }
         }
-        else {
+        else if ( player_option == "scissors" ) {
             if ( opponent_option == "rock" ) {
                 message = "lost";
             }
