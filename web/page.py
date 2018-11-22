@@ -8,11 +8,8 @@ app.secret_key = b'_3(1*03/{}{^%]'
 socketio = SocketIO(app)
 RNODE_HOST = 'localhost'
 connection = casper.create_connection(host=RNODE_HOST, port=40401)
-rholang_code = """
-new print(`rho:io:stdout`) in {
-    print!("Hello World!")
-}
-"""
+with open('./web/logic.rho') as logic_file:
+    rholang_code = logic_file.read()
 print(casper.deploy(connection, rholang_code))
 print(casper.propose(connection))
 @app.route('/')

@@ -1,0 +1,42 @@
+//Game Logic
+new player_option, opponent_option, game, print(`rho.io.stdout`) in {
+    for (@{{player_option!("paper") | _} /\ {opponent_option!("paper") | _}} <= game) {
+        print!("Game is a tie")   
+    }
+    |
+    for (@{{player_option!("paper") | _} /\ {opponent_option!("scissors") | _}} <= game) {
+        print!("opponent wins")
+    }
+    |
+    for (@{{player_option!("paper") | _} /\ {opponent_option!("rock") | _}} <= game) {
+        print!("David wins")
+    }
+    |  
+    for (@{{player_option!("scissors") | _} /\ {opponent_option!("paper") | _}} <= game) {
+        print!("David wins")
+    }
+    |
+    for (@{{player_option!("scissors") | _} /\ {opponent_option!("scissors") | _}} <= game) {
+        print!("Game is a tie")
+    }
+    |
+    for (@{{player_option!("scissors") | _} /\ {opponent_option!("rock") | _}} <= game) {
+        print!("opponent wins")
+    }
+    |
+    for (@{{player_option!("rock") | _} /\ {opponent_option!("paper") | _}} <= game) {
+        print!("opponent wins")
+    }
+    |
+    for (@{{player_option!("rock") | _} /\ {opponent_option!("scissors") | _}} <= game) {
+        print!("David wins")
+    }
+    |
+    for (@{{player_option!("rock") | _} /\ {opponent_option!("rock") | _}} <= game) {
+        print!("Game is a tie")
+    }
+    |
+    //integration test
+    game!(player_option!("paper") | opponent_option!("rock"))
+
+}
